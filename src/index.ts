@@ -1,6 +1,4 @@
 import express from 'express';
-
-
 const App = express();
 
 App.get('/', (req, res) => {
@@ -19,8 +17,6 @@ App.get('/', (req, res) => {
             </body>
         </html>
     `);
-    
-
 });
 
 //create a method post to the route /user
