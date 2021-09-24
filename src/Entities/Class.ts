@@ -1,7 +1,7 @@
 import ITeacher from "./Teacher";
 
 interface IClass {
-    id: number;
+    classId: number;
     name: string;
     description: string;
     date: Date;
