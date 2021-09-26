@@ -6,7 +6,6 @@ export interface IPerson extends mongoose.Document {
     identification: string;
     identificationType: string;
     expeditionCity: string;
-    address: mongoose.Schema.Types.ObjectId; 
 }
 
 
@@ -35,10 +34,6 @@ const personSchema = new mongoose.Schema<IPerson>({
     expeditionCity: {
         type: String,
         required: true,
-    },
-    address: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Address',
     },
 });
 
