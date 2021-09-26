@@ -1,6 +1,16 @@
 import mongoose from 'mongoose';
 
-const personSchema = new mongoose.Schema({
+export interface IPerson extends mongoose.Document {
+    name: string;
+    age: number;
+    identification: string;
+    identificationType: string;
+    expeditionCity: string;
+    address: mongoose.Schema.Types.ObjectId; 
+}
+
+
+const personSchema = new mongoose.Schema<IPerson>({
     name: {
         type: String,
         required: true,

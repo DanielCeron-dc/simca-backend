@@ -1,13 +1,14 @@
-import Mongoose from "mongoose";
+import { Schema, model, Document} from "mongoose";
 
-const Schema = Mongoose.Schema;
+export interface IClass extends Document {
+    name: string;
+    description: string;
+    date: Date;
+    subjectID: Schema.Types.ObjectId;
+    teacherID: Schema.Types.ObjectId;
+}
 
-const ClassSchema = new Schema({
-    classID: {
-        type: String,
-        required: true,
-        unique: true
-    },
+const ClassSchema = new Schema<IClass>({
     name: {
         type: String,
         required: true
@@ -20,10 +21,16 @@ const ClassSchema = new Schema({
         type: Date,
         required: true
     },
+    subjectID: {
+        type: Schema.Types.ObjectId,
+        ref: 'Subject',
+        required: true
+    },
     teacherID: {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: 'Teacher',
         required: true
     },
 });
 
-export default Mongoose.model("Class", ClassSchema);
+export default model("Class", ClassSchema);

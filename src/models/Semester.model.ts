@@ -1,12 +1,20 @@
-import Mongoose from "mongoose";
+import { Schema , model, Document} from "mongoose";
 
-const SemesterSchema = new Mongoose.Schema({
+
+export interface ISemester extends Document {
+    name: string,
+    subjects: Schema.Types.ObjectId[],
+    startDate: Date,
+    endDate:Date
+}
+
+const SemesterSchema = new Schema<ISemester>({
     name: {
         type: String,
         required: true
     },
     subjects: [{
-        type: Mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "Subject"
     }],
     startDate: {
@@ -19,4 +27,4 @@ const SemesterSchema = new Mongoose.Schema({
     }
 });
 
-export default Mongoose.model("Semester", SemesterSchema);
+export default model("Semester", SemesterSchema);

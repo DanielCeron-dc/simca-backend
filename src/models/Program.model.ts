@@ -7,7 +7,6 @@ export interface IProgram extends Mongoose.Document {
     pensumId: Mongoose.Types.ObjectId;
 }
 
-
 const ProgramSchema = new Mongoose.Schema<IProgram>({
     name: {
         type: String,

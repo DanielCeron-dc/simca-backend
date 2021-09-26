@@ -5,6 +5,8 @@ export interface IStudent extends Document {
     password: string;
     person: Schema.Types.ObjectId;
     programID: Schema.Types.ObjectId;
+    classes: Schema.Types.ObjectId[];
+    history: Schema.Types.ObjectId[];
 }
 
 const StudentSchema = new Schema<IStudent>({
@@ -22,11 +24,19 @@ const StudentSchema = new Schema<IStudent>({
         ref: "Person",
         required: true
     },
+    classes: [{
+        type: Schema.Types.ObjectId,
+        ref: "Class"
+    }],
     programID: {
         type: Schema.Types.ObjectId,
         ref: "Program",
         required: true
-    }
+    },
+    history: [{
+        type: Schema.Types.ObjectId,
+        ref: "Semester"
+    }]
 });
 
 export default model("Student", StudentSchema);

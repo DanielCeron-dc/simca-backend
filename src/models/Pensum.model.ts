@@ -1,15 +1,21 @@
-import mongoose from 'mongoose';
+import {Schema, model, Document} from 'mongoose';
 
-const PensumSchema = new mongoose.Schema({
+interface IPensum extends Document {
+    name: string,
+    semesters: Schema.Types.ObjectId[]
+}
+
+
+const PensumSchema = new Schema<IPensum>({
     name: {
         type: String,
         required: true
     },
     semesters: [{
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'Semester'
     }]
 });
 
-export default mongoose.model('Pensum', PensumSchema);
+export default model('Pensum', PensumSchema);
 
