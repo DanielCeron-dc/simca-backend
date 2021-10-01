@@ -8,7 +8,6 @@ export interface IPerson extends mongoose.Document {
     expeditionCity: string;
 }
 
-
 const personSchema = new mongoose.Schema<IPerson>({
     name: {
         type: String,
@@ -36,5 +35,6 @@ const personSchema = new mongoose.Schema<IPerson>({
         required: true,
     },
 });
+
 
 export default mongoose.model('Person', personSchema);

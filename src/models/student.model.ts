@@ -4,7 +4,7 @@ export interface IStudent extends Document {
     email: string;
     password: string;
     person: Schema.Types.ObjectId;
-    programID: Schema.Types.ObjectId;
+    programId: Schema.Types.ObjectId;
     classes: Schema.Types.ObjectId[];
     history: Schema.Types.ObjectId[];
 }
@@ -26,16 +26,18 @@ const StudentSchema = new Schema<IStudent>({
     },
     classes: [{
         type: Schema.Types.ObjectId,
-        ref: "Class"
+        ref: "Class",
+        required: true
     }],
-    programID: {
+    programId: {
         type: Schema.Types.ObjectId,
         ref: "Program",
         required: true
     },
     history: [{
         type: Schema.Types.ObjectId,
-        ref: "Semester"
+        ref: "Semester",
+        required: true
     }]
 });
 

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-export interface IAdress extends mongoose.Document {
+export interface IAddress extends mongoose.Document {
     direction: string;
     street: string;
     city: string;
@@ -9,7 +9,7 @@ export interface IAdress extends mongoose.Document {
 }
 
 
-const AdressSchema = new mongoose.Schema<IAdress>({
+const AdressSchema = new mongoose.Schema<IAddress>({
     direction: {
         type: String,
         required: true,

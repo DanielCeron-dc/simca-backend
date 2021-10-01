@@ -10,7 +10,7 @@ class PersonController {
                     message: "Person not found",
                 });
             } else {
-                res.json(person);
+                res.status(200).json(person);
             }
         } catch (error) {
             res.status(500).json({

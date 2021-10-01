@@ -9,7 +9,7 @@ export const config = {
         // Enable mongoose debug mode
         debug: process.env.MONGODB_DEBUG || false
     },
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 5000,
     app: {
         title: 'Simca - backend'
     }

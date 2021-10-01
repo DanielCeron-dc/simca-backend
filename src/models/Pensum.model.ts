@@ -5,7 +5,6 @@ interface IPensum extends Document {
     semesters: Schema.Types.ObjectId[]
 }
 
-
 const PensumSchema = new Schema<IPensum>({
     name: {
         type: String,
@@ -13,7 +12,8 @@ const PensumSchema = new Schema<IPensum>({
     },
     semesters: [{
         type: Schema.Types.ObjectId,
-        ref: 'Semester'
+        ref: 'Semester',
+        required: true
     }]
 });
 

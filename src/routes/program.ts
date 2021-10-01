@@ -11,7 +11,7 @@ class ProgramRoutes {
     }
 
     config() {
-        this.router.get('/', this.programController.getStudentPrograms);
+        this.router.get('/:idStudent', this.programController.getStudentPrograms);
     }
 
 }

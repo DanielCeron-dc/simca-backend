@@ -10,12 +10,15 @@ App.use(appRoute);
 
 mongoose.connect(config.db.uri).then(() => {
     console.log('Connected to MongoDB');
-    App.listen(3000, () => {
+    App.listen(config.port, () => {
         console.log('Server is running');
     });
 }).catch(err => {
     console.log('Could not connect to MongoDB');
     console.log(err);
+    App.listen(config.port, () => {
+        console.log('Server is running');
+    });
 });
 
 

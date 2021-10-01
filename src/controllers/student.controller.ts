@@ -7,13 +7,13 @@ export class StudentController {
 
     public async addNewStudent(req: Request, res: Response): Promise<void> {
         try {
-            const student = new Student();
+            const student = new Student(req.body);
             await student.save();
             res.status(200).json({ message: 'Student added successfully' });
         } catch (error) {
             res.status(500).json({ message: error });
         }
-    }
+    }  
 
     public async getStudents(req: Request, res: Response) {
         try {
