@@ -19,7 +19,8 @@ appRoute.use("/student", StudentRouter);
 appRoute.use("/semester", SemesterRouter);
 appRoute.use("/subject", SubjectRouter);
 appRoute.use("/person", PersonRouter);
-appRoute.get("/", (_, res) => res.sendFile(path.join(__dirname, "../" , "views" , "welcome.html" )));
+appRoute.get("/", (_, res) => res.status(200).sendFile(path.join(__dirname, "../", "views", "welcome.html")));
+appRoute.use("*", (_, res) => res.status(404).sendFile(path.join(__dirname, "../", "views", "404.html")));
 
 export default appRoute;
 
