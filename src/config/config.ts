@@ -1,7 +1,7 @@
 //export a configuration object for mongodb connection
 export const config = {
     db: {
-        uri: process.env.DB_URI || 'mongodb+srv://damusan:desceron1427@cluster0.dpij2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+        uri: process.env.DB_URI || '',
         options: {
             user: '',
             pass: ''
